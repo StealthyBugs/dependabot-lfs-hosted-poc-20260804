@@ -10,8 +10,11 @@ while IFS= read -r message; do
       ;;
     *'"event":"download"'*)
       object_path="/tmp/codex-ghd-pr-protocol-object-$$"
-      printf 'Z' > "$object_path"
-      printf '{"event":"complete","oid":"bbeebd879e1dff6918546dc0c179fdde505f2a21591c9a9c96e36b054ec5af83","path":"%s"}\n' "$object_path"
+      printf 'PR2_UNIQUE_20260804\n' > "$object_path"
+      printf '{"event":"complete","oid":"792a2087e2f91af2d07f1389a99f4bde864a77280452b58342c04134793bd8b6","path":"%s"}\n' "$object_path"
+      ;;
+    *'"event":"upload"'*)
+      printf '{"event":"complete","oid":"792a2087e2f91af2d07f1389a99f4bde864a77280452b58342c04134793bd8b6"}\n'
       ;;
     *'"event":"terminate"'*)
       exit 0
