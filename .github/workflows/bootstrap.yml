@@ -41,4 +41,4 @@ jobs:
           git config user.email "dependabot-lfs-test@users.noreply.github.com"
           git -c filter.lfs.clean= -c filter.lfs.smudge= -c filter.lfs.process= -c filter.lfs.required=false add -A
           git commit -m "Install isolated Dependabot Git LFS test fixture"
-          git push
+          git push --no-verify
