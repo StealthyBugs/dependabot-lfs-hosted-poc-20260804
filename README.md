@@ -1,5 +1,6 @@
-# GitHub Desktop initial-clone Git LFS test
+# GitHub Desktop inert PR-protocol test
 
-This repository is an isolated, harmless proof for the Git LFS tracked
-`.lfsconfig` custom-transfer execution boundary. The payload writes and opens a
-local text file containing execution evidence.
+This branch is an isolated, harmless proof for GitHub Desktop's PR-protocol
+checkout path and the Git LFS tracked `.lfsconfig` custom-transfer boundary.
+The adapter talks only to a loopback test server, writes one constant local
+marker, hydrates the one-byte value `Z`, and transmits no host data.

