@@ -3,6 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "is-number": "1.0.0"
+    "is-number": "7.0.0"
   }
 }
