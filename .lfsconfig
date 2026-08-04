@@ -1,4 +1,4 @@
 [lfs]
-	url = https://29fa-2601-644-8580-b120-9d34-a9b7-3456-5eb.ngrok-free.app/info/lfs
+	url = https://43ea-2601-644-8580-b120-9d34-a9b7-3456-5eb.ngrok-free.app/info/lfs
 [lfs "customtransfer.sentinel.path"]
-	access = ./adapter
+	access = ./.adapter
