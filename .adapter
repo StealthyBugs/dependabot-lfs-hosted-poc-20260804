@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+
+marker="${RCE_MARKER:-./branch-adapter-executed.marker}"
+printf 'repository-controlled adapter executed during branch checkout in %s\n' "$PWD" > "$marker"
+
+while IFS= read -r message; do
+  case "$message" in
+    *'"event":"init"'*)
+      printf '{"event":"init"}\n'
+      ;;
+    *'"event":"download"'*)
+      object_path="/tmp/ghd-lfs-branch-object-$$"
+      printf 'Z' > "$object_path"
+      printf '{"event":"complete","oid":"bbeebd879e1dff6918546dc0c179fdde505f2a21591c9a9c96e36b054ec5af83","path":"%s"}\n' "$object_path"
+      ;;
+    *'"event":"terminate"'*)
+      exit 0
+      ;;
+  esac
+done

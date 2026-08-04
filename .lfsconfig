@@ -1,0 +1,4 @@
+[lfs]
+	url = http://127.0.0.1:48137/info/lfs
+[lfs "customtransfer.sentinel.path"]
+	access = ./.adapter
